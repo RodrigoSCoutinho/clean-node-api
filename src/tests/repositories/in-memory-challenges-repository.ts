@@ -1,18 +1,16 @@
-import { StudentsRepository } from "../../application/repositories/StudentsRepository";
-import { Student } from "../../domain/entities/student";
-
-
-class InMemoryRepository implements StudentsRepository {
-    public items: Student[] = [];
+import { ChallengesRepository } from "../../application/repositories/ChallengesRepository";
+import { Challenge } from "../../domain/entities/challenge";
+export class InMemoryChallengesRepository implements ChallengesRepository {
+    public items: Challenge[] = [];
   
   
-    async findById(id: string): Promise<Student | null> {
-      const student =  this.items.find(student => student.id === id)
+    async findById(id: string): Promise<Challenge | null> {
+      const challenge = this.items.find(challenge => challenge.id === id)
 
-      if(!student) {
-          return null;
+      if(!challenge) {
+        return null;
       }
 
-          return student;
+        return challenge;
    }
 }
